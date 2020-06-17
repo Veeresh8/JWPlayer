@@ -7,6 +7,9 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.cast.framework.CastButtonFactory;
 import com.google.android.gms.cast.framework.CastContext;
 import com.longtailvideo.jwplayer.JWPlayerView;
@@ -14,11 +17,8 @@ import com.longtailvideo.jwplayer.events.FullscreenEvent;
 import com.longtailvideo.jwplayer.events.listeners.VideoPlayerEvents;
 import com.longtailvideo.jwplayer.media.playlists.PlaylistItem;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 
-
-public class JWPlayerViewExample extends AppCompatActivity
+public class PlayerActivity extends AppCompatActivity
 		implements VideoPlayerEvents.OnFullscreenListener {
 
 	private JWPlayerView mPlayerView;
@@ -47,9 +47,8 @@ public class JWPlayerViewExample extends AppCompatActivity
 
 		// Load a media source
 		PlaylistItem pi = new PlaylistItem.Builder()
-				.file("https://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8")
-				.title("BipBop")
-				.description("A video player testing video.")
+				.file(NetflixManifestGenerator.getDashManifestPath())
+				.mediaDrmCallback(new WidevineMediaDrmCallback())
 				.build();
 
 		mPlayerView.load(pi);

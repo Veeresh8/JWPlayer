@@ -1,14 +1,18 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
 	compileSdkVersion 29
 	buildToolsVersion "29.0.2"
 	defaultConfig {
-		minSdkVersion 16
+		minSdkVersion 19
 		targetSdkVersion 29
 		versionCode 1
 		versionName "1.0"
 		applicationId "com.jwplayer.opensourcedemo"
+		multiDexEnabled true
+
 	}
 	buildTypes {
 		release {
@@ -30,10 +34,14 @@ dependencies {
 	implementation 'com.longtailvideo.jwplayer:jwplayer-core:3.9.0'
 	implementation 'com.longtailvideo.jwplayer:jwplayer-common:3.9.0'
 	implementation 'com.longtailvideo.jwplayer:jwplayer-chromecast:3.9.0'
+	implementation 'com.android.volley:volley:1.1.1'
+	implementation("com.squareup.okhttp3:okhttp:4.7.2")
+	implementation group: 'com.netflix.msl', name: 'msl-core', version: '1.1211.0'
+	implementation 'com.google.code.gson:gson:2.8.6'
 
 	// Only required if using IMA features
 	implementation 'com.longtailvideo.jwplayer:jwplayer-ima:3.9.0'
-	
+
 	// Only required if using FreeWheel
 	 implementation 'com.longtailvideo.jwplayer:jwplayer-freewheel:3.9.0'
 }

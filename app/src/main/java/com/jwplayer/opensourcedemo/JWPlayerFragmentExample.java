@@ -32,7 +32,7 @@ public class JWPlayerFragmentExample extends AppCompatActivity {
 
 		// Construct a new JWPlayerSupportFragment (since we're using AppCompatActivity)
 		mPlayerFragment = JWPlayerSupportFragment.newInstance(new PlayerConfig.Builder()
-																	  .file("http://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8")
+																	  .file("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
 																	  .build());
 
 		// Attach the Fragment to our layout
@@ -84,7 +84,7 @@ public class JWPlayerFragmentExample extends AppCompatActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.switch_to_view:
-				Intent i = new Intent(this, JWPlayerViewExample.class);
+				Intent i = new Intent(this, PlayerActivity.class);
 				startActivity(i);
 				return true;
 			default:
